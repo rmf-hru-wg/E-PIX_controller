@@ -1,0 +1,8 @@
+*-backups
+.vscode
+.pio
+*.lck
+production
+Gerver
+
+Oldversions
