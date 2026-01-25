@@ -1,0 +1,3 @@
+[submodule "KicadExternalLib"]
+	path = KicadExternalLib
+	url = https://github.com/rmf-hru-wg/KicadExternalLib.git
