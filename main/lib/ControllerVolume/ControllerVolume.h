@@ -11,9 +11,10 @@ public:
 
     void set_volume(int id, int dir);
     void set_pos_ini(int pos_ini); // position 3500-11500
-    void set_limit(float min, float max); // radian
+    void set_map_limit(float map_min, float map_max); // radian
+    void set_volume_limit(int volume_min, int volume_max); // analog value
     // init all
-    void init(int id, int dir, int pos_ini, float min, float max);
+    void init(int id, int dir, int pos_ini, float map_min, float map_max);
 
     // return radian value
     float read();
@@ -23,6 +24,8 @@ private:
     int dir;
 
     int pos_ini;
-    float max;
-    float min;
+    float map_min;
+    float map_max;
+    int volume_min = VOLUME_MIN;
+    int volume_max = VOLUME_MAX;
 };

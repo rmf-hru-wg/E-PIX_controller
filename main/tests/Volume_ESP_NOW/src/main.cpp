@@ -56,6 +56,7 @@ void onSend(const uint8_t *mac_addr, esp_now_send_status_t status)
 // ==========================
 void setup() {
     Serial.begin(115200);
+    Serial.println("ESP-NOW Volume Client");
     neopixelWrite(RGB_BUILTIN, 255, 0, 0);
 
     // ADC setting（変更なし）
