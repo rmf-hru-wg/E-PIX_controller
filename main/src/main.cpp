@@ -197,15 +197,15 @@ void loop() {
 void init_volume() {
     float volume_max_abs = 300 * 3.14 / 180; // about 300 deg
     
-    stick_x_right.init(STICK_X_RIGHT, FORWARD, 4023, 0.0, 2.0);
-    stick_y_right.init(STICK_Y_RIGHT, REVERSE, 4063, 0.0, 2.0);
+    stick_x_right.init(STICK_X_RIGHT, FORWARD, 1976, 0.0, 2.0);
+    stick_y_right.init(STICK_Y_RIGHT, REVERSE, 2017, 0.0, 2.0);
 
     stick_x_left.init(STICK_X_LEFT, FORWARD, 0, 0.0, 2.0);
     stick_y_left.init(STICK_Y_LEFT, REVERSE, 0, 0.0, 2.0);
 
-    arm_pitch_right.init(ARM_PITCH_RIGHT, FORWARD, 2077, 0.0, volume_max_abs);
-    arm_roll_right.init(ARM_ROLL_RIGHT, REVERSE, 1773, 0.0, volume_max_abs);
-    hand_right.init(HAND_RIGHT, FORWARD, 4096/2, 0.0, volume_max_abs);
+    arm_pitch_right.init(ARM_PITCH_RIGHT, REVERSE, 2745, 0.0, volume_max_abs);
+    arm_roll_right.init(ARM_ROLL_RIGHT, FORWARD, 1670, 0.0, volume_max_abs);
+    hand_right.init(HAND_RIGHT, FORWARD, 1930, 0.0, volume_max_abs);
 
     arm_pitch_left.init(ARM_PITCH_LEFT, FORWARD, 0, 0.0, volume_max_abs);
     arm_roll_left.init(ARM_ROLL_LEFT, REVERSE, 0, 0.0, volume_max_abs);

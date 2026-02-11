@@ -7,11 +7,11 @@ void ControllerVolume::set_volume(int id, int dir){
     this->dir = dir;
 }
 void ControllerVolume::set_pos_ini(int pos_ini){
-    this->pos_ini = pos_ini - (VOLUME_MAX+1)/2;
+    this->pos_ini = pos_ini;
 }
 void ControllerVolume::set_map_limit(float map_min, float map_max){
-    this->map_min = map_min;
-    this->map_max = map_max;
+    this->map_min = map_min*MAP_RESOLUTION;
+    this->map_max = map_max*MAP_RESOLUTION;
 }
 void ControllerVolume::set_volume_limit(int volume_min, int volume_max){
     this->volume_min = volume_min;
@@ -31,8 +31,11 @@ float ControllerVolume::read(){
                     this->map_min, this->map_max);
 
     float pos_ini = map(this->pos_ini,
-                    float(VOLUME_MIN), float(VOLUME_MAX),
-                    float(this->volume_min), float(this->volume_max));
-    return (value-pos_ini)*this->dir;
+                    float(this->volume_min), float(this->volume_max),
+                    this->map_min, this->map_max);
+
+    return (value-pos_ini)*this->dir/MAP_RESOLUTION;
+    // return pos_ini/MAP_RESOLUTION;
+    // return value/MAP_RESOLUTION;
     // return analog_value;
 }

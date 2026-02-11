@@ -4,13 +4,14 @@
 #define REVERSE -1
 #define VOLUME_MIN 0
 #define VOLUME_MAX 4095
+#define MAP_RESOLUTION 2000.0 // to increase map resolution
 
 class ControllerVolume{
 public:
     ControllerVolume();
 
     void set_volume(int id, int dir);
-    void set_pos_ini(int pos_ini); // position 3500-11500
+    void set_pos_ini(int pos_ini); // set analog value at initial position (0 rad)
     void set_map_limit(float map_min, float map_max); // radian
     void set_volume_limit(int volume_min, int volume_max); // analog value
     // init all
