@@ -14,7 +14,7 @@ const unsigned long TIMEOUT = 3000;
 unsigned long lastPing = 0;
 
 // ESP now connection
-uint8_t serverMac[6] = { 0xDC, 0xB4, 0xD9, 0x06, 0xCA, 0x40 };
+uint8_t serverMac[6] = { 0xDC, 0xB4, 0xD9, 0x06, 0xCA, 0x48 };
 
 // volume
 ControllerVolume stick_x_right;
@@ -191,7 +191,7 @@ void loop() {
              (uint8_t *)&pkt,
              sizeof(pkt));
 
-    delay(500);
+    delay(10);
 }
 
 void init_volume() {
