@@ -35,7 +35,5 @@ float ControllerVolume::read(){
                     this->map_min, this->map_max);
 
     return (value-pos_ini)*this->dir/MAP_RESOLUTION;
-    // return pos_ini/MAP_RESOLUTION;
-    // return value/MAP_RESOLUTION;
     // return analog_value;
 }
