@@ -50,12 +50,19 @@ void write_LOGO(){
     display.display();
 }
 
+void write_msg(const char* msg){
+    display.clearDisplay();
+    display.setCursor(0, 0);
+    display.print(msg);
+    display.display();
+}
+
 // ESP-NOW callbacks
 void onReceive(const uint8_t *mac_addr,
                const uint8_t *data,
                int len)
 {
-    char msg[16];
+    char msg[64];
     int n = min(len, (int)sizeof(msg) - 1);
     memcpy(msg, data, n);
     msg[n] = '\0';
@@ -67,6 +74,10 @@ void onReceive(const uint8_t *mac_addr,
         lastPing = millis();
         Serial.println("ping received");
         neopixelWrite(RGB_BUILTIN, 0, 0, 255);
+    }else if (strcmp(msg, "LOGO") == 0){
+        write_LOGO();
+    }else{
+        write_msg(msg);
     }
 }
 
@@ -191,7 +202,7 @@ void loop() {
              (uint8_t *)&pkt,
              sizeof(pkt));
 
-    delay(500);
+    delay(10);
 }
 
 void init_volume() {
@@ -205,9 +216,9 @@ void init_volume() {
 
     arm_pitch_right.init(ARM_PITCH_RIGHT, REVERSE, 2774, 0.0, volume_max_abs);
     arm_roll_right.init(ARM_ROLL_RIGHT, FORWARD, 1812, 0.0, volume_max_abs);
-    hand_right.init(HAND_RIGHT, FORWARD, 2823, 0.0, volume_max_abs);
+    hand_right.init(HAND_RIGHT, FORWARD, 2263, 0.0, volume_max_abs);
 
     arm_pitch_left.init(ARM_PITCH_LEFT, FORWARD, 1460, 0.0, volume_max_abs);
     arm_roll_left.init(ARM_ROLL_LEFT, REVERSE, 1823, 0.0, volume_max_abs);
-    hand_left.init(HAND_LEFT, REVERSE, 2963, 0.0, volume_max_abs);
+    hand_left.init(HAND_LEFT, REVERSE, 3420, 0.0, volume_max_abs);
 }
