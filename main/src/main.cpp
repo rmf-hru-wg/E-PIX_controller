@@ -100,6 +100,7 @@ void setup() {
     display.cp437(true);                 // Use full 256 char 'Code Page 437' font
     display.write("Eglantyne controller initializing...");
     display.display();
+    delay(500);
 
     // ADC setup
     analogReadResolution(12);
@@ -141,9 +142,7 @@ void loop() {
     // timeout handling（Wi-Fi版と同等）
     if (millis() - lastPing > TIMEOUT) {
         neopixelWrite(RGB_BUILTIN, 255, 0, 0);
-        display.clearDisplay();
-        display.write("Connection timeout");
-        display.display();
+        write_msg("Connection lost");
     }
 
     ControlPacket pkt = {};
